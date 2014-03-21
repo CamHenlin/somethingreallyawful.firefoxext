@@ -56,7 +56,7 @@ var ForumTileView = Backbone.View.extend({
 	template: _.template('\
 		<div style="width: 200px; height: 200px;" class="live-tile <%= colors[Math.floor((Math.random()*6))] %> " data-speed="1750" \
 		data-delay="<%= Math.floor((Math.random()*5000)+2000) %>"> \
-			<span class="tile-title"><%= description %></span> \
+			<span class="tile-title"><%= name %> <%= description %></span> \
 			<div style="font-size: 30px;"><%= name %></div> \
 			<div style="font-size: 20px;"> moderated by <%= moderators %></div> \
 		</div> \
@@ -107,7 +107,7 @@ var ForumHeaderView = Backbone.View.extend({
 			<span class="tile-title">refresh the forum</span> \
 			<div style="font-size: 25px;">f5 f5 f5</div> \
 			<div style="font-size: 15px;">you know you want to</div> \
-		</div><br><br><br><br><br><br><br><br> \
+		</div><br><br><br><br><br><br><br><br><br> \
     '),
 	initialize: function() {
 		this.model.bind("change", this.render, this);
@@ -123,7 +123,7 @@ var ForumsHeaderView = Backbone.View.extend({
 	template: _.template('\
 		<header> \
         <div class="site-title"><a href="/">something awful</a></div> \
-    	</header><br><br><br><br><br><br><br><br> \
+    	</header><br><br><br><br><br><br><br><br><br> \
     '),
 	initialize: function() {
 	},

@@ -7,7 +7,7 @@ var ThreadTileModel = Backbone.Model.extend({
 			"views"      : "",
 			"author"     : "",
 			"authorId"   : "",
-			"iconId" 	 : "",
+			"iconImage"  : "",
 			"killedBy"   : "",
 			"rating"     : "",
 			"votes"      : ""
@@ -97,9 +97,9 @@ var ThreadTileView = Backbone.View.extend({
 	template: _.template('\
 		<div style="width: 200px; height: 200px;" class="live-tile <%= colors[Math.floor((Math.random()*6))] %> " data-speed="1750" \
 		data-delay="<%= Math.floor((Math.random()*5000)+2000) %>"> \
-			<span class="tile-title"><%= replies %> replies<br> ruined by <%= killedBy %><br><%= rating %>/5 rating</span> \
+			<span class="tile-title"><%= name %> <%= replies %> replies<br> ruined by <%= killedBy %><br><%= rating %>/5 rating</span> \
 			<div style="font-size: 20px;"><%= name %></div> \
-			<div style="font-size: 20px;"> started by <%= author %></div> \
+			<div style="font-size: 25px; background-image: url(\'<%= iconImage %>\');background-repeat:no-repeat;background-size: contain;background-position:center center;"> started by <%= author %></div> \
 		</div> \
     '),
 	initialize: function() {
@@ -148,7 +148,7 @@ var ThreadHeaderView = Backbone.View.extend({
 			<span class="tile-title">refresh the thread</span> \
 			<div style="font-size: 25px;">f5 f5 f5</div> \
 			<div style="font-size: 15px;">you know you want to</div> \
-		</div><br><br><br><br><br><br><br><br> \
+		</div><br><br><br><br><br><br><br><br><br> \
     '),
 	initialize: function() {
 		this.model.bind("change", this.render, this);

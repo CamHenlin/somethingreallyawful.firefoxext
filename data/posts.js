@@ -6,7 +6,8 @@ var PostTileModel = Backbone.Model.extend({
 			"author"   : "",
 			"authorId" : "",
 			"postText" : "",
-			"seen"	   : ""
+			"seen"	   : "",
+			"avatar"   : ""
 		};
 	}
 });
@@ -47,7 +48,7 @@ var PostTileView = Backbone.View.extend({
 			data-delay="<%= Math.floor((Math.random()*5000)+2000) %>"> \
 				<span class="tile-title"><%= postTime %></span> \
 				<div style="font-size: 25px;"><%= author %></div> \
-				<div style="font-size: 25px;"><%= author %></div> \
+				<div style="font-size: 25px; background-image: url(\'<%= avatar %>\');background-size:100% 100%;"><%= author %></div> \
 			</div> \
 			<div style="overflow-y: visible; width: 85%; height: 100%; background-color: <%= color %>; padding: 8px;margin-top:3px; float: right;"> \
 				<%= postText %> \

@@ -11,14 +11,14 @@ var somethingReallyAwful = function() {
 	 * @param {[type]} votes    [thread votes contributing to rating]
 	 * @param {[type]} icon     [id of icon used by thread]
 	 */
-	var Thread = function (id, name, replies, views, author, authorId, iconId, killedBy, rating, votes) {
+	var Thread = function (id, name, replies, views, author, authorId, iconImage, killedBy, rating, votes) {
 		this.id         = id;
 		this.name       = name;
 		this.replies    = replies;
 		this.views      = views;
 		this.author     = author;
 		this.authorId   = authorId;
-		this.iconId 	= iconId;
+		this.iconImage 	= iconImage;
 		this.killedBy   = killedBy;
 		this.rating     = rating;
 		this.votes 		= votes;
@@ -46,14 +46,16 @@ var somethingReallyAwful = function() {
 	 * @param {[type]} authorId [description]
 	 * @param {[type]} postText [description]
 	 * @param {[type]} seen		[description]
+	 * @param {[type]} avatar	[description]
 	 */
-	var Post = function (id, postTime, author, authorId, postText, seen) {
+	var Post = function (id, postTime, author, authorId, postText, seen, avatar) {
 		this.id       = id;
 		this.postTime = postTime;
 		this.author   = author;
 		this.authorId = authorId;
 		this.postText = postText;
 		this.seen 	  = seen;
+		this.avatar   = avatar;
 	};
 
 	/**
@@ -79,7 +81,7 @@ var somethingReallyAwful = function() {
 							$(threadTr).find('.views').text(), // views
 							$(threadTr).find('.author')[0].textContent, // author
 							$(threadTr).find('.author').find('a').attr('href').split('userid=')[1], // authorid
-							$(threadTr).find('.icon').find('a').attr('href').split('posticon=')[1], // iconid
+							$(threadTr).find('.icon').find('img').attr("src"), // iconimage
 							$($(threadTr).children()[7]).children()[1].textContent, // killed by
 							(typeof($($(threadTr).children()[6]).children()[0]) !== "undefined") ? $($(threadTr).children()[6]).children()[0].getAttribute('title').split(' votes - ')[1].split(' average')[0] : null, // rating
 							(typeof($($(threadTr).children()[6]).children()[0]) !== "undefined") ? $($(threadTr).children()[6]).children()[0].getAttribute('title').split(' votes -')[0] : null // votes
@@ -166,7 +168,8 @@ var somethingReallyAwful = function() {
 							$(threadDiv).find('.author').text(), // author
 							$(threadDiv).find('.userinfo')[0].attributes.class.textContent.split('userid-')[1], // authorId
 							$(threadDiv).find('.postbody').html(), // postText
-							($(threadDiv).find('tr')[0].className.search('seen') !== -1) ? true : false
+							($(threadDiv).find('tr')[0].className.search('seen') !== -1) ? true : false, // seen the post?
+							$(threadDiv).find("img")[0].src // author avatar url
 						)
 					);
 				});

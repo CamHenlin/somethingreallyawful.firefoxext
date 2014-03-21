@@ -1,0 +1,27 @@
+body {
+	background-color: #2672EC !important;
+	color: #FFFFFF !important;
+}
+
+a {
+	color: #FFFFFF !important;
+	font-weight: bold !important;
+}
+
+.site-title {
+	float:left;
+	margin:-30px auto 0 40px;
+	-moz-transition:font-size .3s; /* Firefox 4 */
+	-webkit-transition:font-size .3s; /* Safari and Chrome */
+	-o-transition:font-size .3s; /* Opera */
+	transition:font-size .3s;
+}
+
+.site-title a {
+    font-size:5em;
+    text-decoration:none;
+    -moz-transition:font-size .3s; /* Firefox 4 */
+    -webkit-transition:font-size .3s; /* Safari and Chrome */
+    -o-transition:font-size .3s; /* Opera */
+    transition:font-size .3s;
+}

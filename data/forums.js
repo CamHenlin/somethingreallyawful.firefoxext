@@ -107,7 +107,7 @@ var ForumHeaderView = Backbone.View.extend({
 			<span class="tile-title">refresh the forum</span> \
 			<div style="font-size: 25px;">f5 f5 f5</div> \
 			<div style="font-size: 15px;">you know you want to</div> \
-		</div><br><br><br><br><br><br><br><br><br> \
+		</div><br><br><br><br><br><br><br><br> \
     '),
 	initialize: function() {
 		this.model.bind("change", this.render, this);
@@ -123,7 +123,7 @@ var ForumsHeaderView = Backbone.View.extend({
 	template: _.template('\
 		<header> \
         <div class="site-title"><a href="/">something awful</a></div> \
-    	</header><br><br><br><br><br><br><br><br><br> \
+    	</header><br><br><br><br><br><br><br><br> \
     '),
 	initialize: function() {
 	},
